@@ -40,4 +40,4 @@ ENV transactions 610
 
 ADD entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["/usr/sbin/sshd -D"]
+CMD [""]
