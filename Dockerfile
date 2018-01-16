@@ -1,5 +1,4 @@
 FROM ubuntu:16.04
-MAINTAINER Satish Hegde <satish.hegde@wipro.com>
 
 # get rid of the message: "debconf: unable to initialize frontend: Dialog"
 ENV DEBIAN_FRONTEND noninteractive

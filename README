@@ -1,0 +1,36 @@
+# How to build a docker image for oracle ubuntu?
+ANS: Run the following command from the directory where Dockerfile is present
+
+# docker build -t <image-name:version> .
+
+# How to run this Oracle DB container?
+ANS: Execute the following docker command with the specified ports, name of 
+the container & the container image with version.
+
+# docker run -d -P --shm-size=2g -p 1521:1521 -p 8080:8080 --name mydb oracle:base
+
+# How to launch this DB service in SWARM Cluster?
+ANS: Execute the following command from SWARM Manager Node.
+
+# docker service create --publish 1521:1521 --publish 8080:8080 --name oracle_db 403543998317.dkr.ecr.us-east-1.amazonaws.com/oracle:11g
+
+# How to provision multiple replicas of Oracle DB Container at the same time
+ANS: Execte the following command from SWARM Manager Node. Specify the number
+of replicas needed as shown below.
+
+# docker service create -p 1521:1521 -p 8080:8080 --name oracle_db --replicas 2 403543998317.dkr.ecr.us-east-1.amazonaws.com/oracle:11g 
+
+# How to connect to Oracle Container DB?
+ANS: Execute the following docker command with the name of the container. 
+
+# docker exec -it mydb bash
+
+# How to access the Oracle DB inside the container?
+ANS: once your connect to the container, you will get the prompt. on the prompt
+exeute the following "sqlplus" command to connect to Oracle DB
+
+# sqlplus /nolog
+# > connect
+# > user: system
+# > password: oracle
+
